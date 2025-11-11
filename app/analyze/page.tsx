@@ -191,8 +191,8 @@ export default function AnalyzePage() {
                 <p>
                   Conecta `/api/groups` a un worker que utilice la Graph API
                   (permiso `groups_access_member_info`). Dispara un Vercel Cron
-                  cada 5 minutos para consultar "/{group-id}/feed" y enviar los
-                  posts nuevos a `/api/analyze`.
+                  cada 5 minutos para consultar /{'{group-id}'}/feed y enviar los
+                  posts nuevos a <code>/api/analyze</code>.
                 </p>
                 <p>
                   Usa `/api/subscribe` para guardar los canales de alerta y
