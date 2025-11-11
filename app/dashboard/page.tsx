@@ -54,7 +54,7 @@ export default async function DashboardPage() {
           </div>
         ) : (
           <section className="grid gap-4 md:grid-cols-2">
-            {groups.map((group) => (
+            {groups?.map((group) => (
               <GroupCard
                 key={group.id}
                 url={group.url}
