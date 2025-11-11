@@ -1,7 +1,12 @@
+"use client";
+
 import Link from "next/link";
 import type { Metadata } from "next";
+import { Suspense } from "react";
 
 import { LoginForm } from "./login-form";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Iniciar sesion | Facebook Radar",
@@ -32,7 +37,15 @@ export default function LoginPage() {
         </section>
 
         <section className="flex-1">
-          <LoginForm />
+          <Suspense
+            fallback={
+              <div className="rounded-2xl border border-green-900/40 bg-slate-900/60 p-4 text-center text-sm text-green-200">
+                Cargando...
+              </div>
+            }
+          >
+            <LoginForm />
+          </Suspense>
         </section>
       </div>
     </main>
