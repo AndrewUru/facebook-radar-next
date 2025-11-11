@@ -44,7 +44,7 @@ export default async function DashboardPage() {
           </Link>
         </header>
 
-        {groups.length === 0 ? (
+        {groups?.length === 0 ? (
           <div className="rounded-3xl border border-green-900/50 bg-slate-900/60 p-8 text-center text-green-200/80">
             <p>No tienes grupos conectados todavia.</p>
             <p className="mt-2">
