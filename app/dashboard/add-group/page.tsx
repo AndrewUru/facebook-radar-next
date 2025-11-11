@@ -4,7 +4,29 @@ import { redirect } from "next/navigation";
 import { AddGroupForm } from "@/app/dashboard/components/add-group-form";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 
+export const dynamic = "force-dynamic";
+
 export default async function AddGroupPage() {
+  const supabaseEnvReady =
+    Boolean(process.env.NEXT_PUBLIC_SUPABASE_URL) &&
+    Boolean(process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
+
+  if (!supabaseEnvReady) {
+    return (
+      <main className="min-h-screen bg-slate-950 px-6 py-12 text-green-50">
+        <div className="mx-auto flex max-w-3xl flex-col gap-4 rounded-3xl border border-yellow-500/30 bg-yellow-500/10 p-8 text-yellow-100">
+          <h1 className="text-3xl font-semibold text-yellow-200">
+            Dashboard inactivo
+          </h1>
+          <p className="text-sm">
+            Define NEXT_PUBLIC_SUPABASE_URL y NEXT_PUBLIC_SUPABASE_ANON_KEY para
+            habilitar la conexión con Supabase antes de añadir grupos.
+          </p>
+        </div>
+      </main>
+    );
+  }
+
   const supabase = createServerSupabaseClient();
   const {
     data: { user },
