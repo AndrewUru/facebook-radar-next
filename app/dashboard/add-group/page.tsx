@@ -30,7 +30,7 @@ export default async function AddGroupPage() {
             href="/dashboard"
             className="text-sm text-green-400 transition hover:text-green-200"
           >
-            <- Volver al dashboard
+            &larr; Volver al dashboard
           </Link>
         </header>
 

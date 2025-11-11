@@ -172,7 +172,7 @@ export default function AnalyzePage() {
               <ul className="mt-3 space-y-2 text-sm text-green-200/80">
                 {helperMessages.map((message) => (
                   <li key={message} className="flex gap-2">
-                    <span className="text-green-500">></span>
+                    <span className="text-green-500">&gt;</span>
                     <span>{message}</span>
                   </li>
                 ))}
