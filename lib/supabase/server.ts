@@ -1,15 +1,19 @@
 import { cookies } from "next/headers";
 import {
-  createRouteHandlerClient,
   createServerComponentClient,
+  createRouteHandlerClient,
 } from "@supabase/auth-helpers-nextjs";
 
 import type { Database } from "./types";
 
 export function createServerSupabaseClient() {
-  return createServerComponentClient<Database>({ cookies });
+  return createServerComponentClient<Database>({
+    cookies: () => cookies(),
+  });
 }
 
 export function createRouteSupabaseClient() {
-  return createRouteHandlerClient<Database>({ cookies });
+  return createRouteHandlerClient<Database>({
+    cookies: () => cookies(),
+  });
 }
